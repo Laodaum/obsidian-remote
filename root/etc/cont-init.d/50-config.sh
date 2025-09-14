@@ -35,9 +35,3 @@ zdump -v /etc/localtime
 echo "********************************"
 echo "****  End Date Information  ****"
 echo "********************************"
-
-# permissions
-chown -R abc:abc \
-    /config \
-    /vaults \
-    /root

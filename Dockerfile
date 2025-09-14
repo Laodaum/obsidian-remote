@@ -33,6 +33,14 @@ ENV CUSTOM_PORT="8080" \
 # Add local files
 COPY root/ /
 
+# Скрипты должны быть исполняемыми
+RUN chmod +x /etc/cont-init.d/*.sh
+
+# Данные должны принадлежать abc
+RUN mkdir -p /config /vaults &&\
+    chown -R abc:abc /config /vaults &&\
+    chmod -R 755 /config /vaults
+
 # Expose ports and volumes
 EXPOSE 8080 8443
 VOLUME ["/config","/vaults"]
